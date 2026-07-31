@@ -1,16 +1,66 @@
-# React + Vite
+# TalentSync - Online Job Board & Recruitment Portal 🚀
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+TalentSync is an end-to-end full-stack web application built to connect talented job seekers with recruiting employers. The platform allows employers to post, manage, and track job openings while enabling job seekers to search, filter, and apply for their ideal roles.
 
-Currently, two official plugins are available:
+This project was developed as a self-directed full-stack implementation featuring a normalized **PostgreSQL** database, a secure **Django REST Framework (DRF)** backend API, and a responsive **React** frontend.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+---
 
-## React Compiler
+## 🛠️ Technology Stack
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+| Layer | Required Technology |
+| :--- | :--- |
+| **Frontend** | React (Functional Components + Hooks), React Router, Context API / Axios |
+| **Backend** | Django, Django REST Framework (DRF), Custom Permissions, `python-dotenv` (`.env`) |
+| **Database** | **PostgreSQL** (Normalized Relational Schema, Django ORM, Migrations, `psycopg2-binary`) |
+| **Security** | Simple JWT Authentication, CORS/CSRF configurations, Built-in Password Hashing |
+| **Email Service** | Django Core Mail Framework (SMTP / Mailtrap Integration) |
+| **Version Control** | Git & GitHub (Feature Branch Workflow, Pull Requests, Incremental Commits) |
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 🎯 Key Features
+
+### 👤 Role-Based Access Control (RBAC)
+* **Employers:** Can register a company profile, create/edit/close job listings, and view/manage applicants exclusively for their own postings.
+* **Job Seekers:** Can register, build a user profile, browse/search job listings with pagination, and submit job applications.
+
+### 💼 Employer Dashboard
+* A protected, role-exclusive dashboard displaying active/closed job postings and real-time applicant counts.
+* Applicant status lifecycle management (`Applied` → `Reviewed` → `Accepted`/`Rejected`).
+
+### 🔍 Advanced Job Browsing & Filtering
+* Multi-parameter filtering by keyword, category, and location.
+* Server-side pagination for optimized data rendering and performance[cite: 1].
+
+### 📧 Integrated Email Notifications
+* Triggers welcome/verification emails upon user registration[cite: 1].
+* Sends status update notifications to job seekers when an employer updates their application status[cite: 1].
+* Uses environment variables (`.env`) for secure SMTP credentials[cite: 1].
+
+---
+
+## 🗄️ Database Architecture (PostgreSQL)
+
+The application models a normalized relational database schema in PostgreSQL[cite: 1]:
+* **User Model:** Extended shared login table with a role field (`Employer` or `JobSeeker`)[cite: 1].
+* **Company Model:** One-to-Many relationship (One Employer can own one Company; a Company can have many Jobs)[cite: 1].
+* **Job Model:** Linked to `Company` and `Category`, storing attributes like title, description, location, salary range, and status (`open`/`closed`)[cite: 1].
+* **Category Model:** One-to-Many relationship with Job listings[cite: 1].
+* **Application Model:** Many-to-Many resolution table linking `Job` and `JobSeeker` with application status tracking (`applied`, `reviewed`, `rejected`, `accepted`)[cite: 1].
+
+---
+
+## 🚀 Local Setup & Installation Guide
+
+### Prerequisites
+* [Python 3.10+](https://www.python.org/)
+* [Node.js & npm](https://nodejs.org/)
+* [PostgreSQL](https://www.postgresql.org/) installed and running locally[cite: 1]
+
+---
+
+### 1. Database Setup (PostgreSQL)
+Open your PostgreSQL terminal (`psql`) or **pgAdmin** and create the project database[cite: 1]:
+```sql
+CREATE DATABASE talentsync_db;
