@@ -92,6 +92,7 @@ DATABASES = {
         'HOST': os.getenv('DB_HOST', 'localhost'),
         'PORT': os.getenv('DB_PORT', '5432'),
         'OPTIONS': {
+            'sslmode': os.getenv('DB_SSLMODE', 'prefer'),
             'options': f"-c search_path={os.getenv('DB_SCHEMA', 'talentsync')},public",
         },
     }
