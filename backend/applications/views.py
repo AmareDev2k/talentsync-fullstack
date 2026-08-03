@@ -4,6 +4,7 @@ from rest_framework.exceptions import PermissionDenied
 from users.permissions import IsEmployer, IsJobSeeker
 from .models import Application
 from .serializers import ApplicationSerializer, ApplicationCreateSerializer
+from .emails import send_application_confirmation_email
 
 
 class ApplicationViewSet(viewsets.ModelViewSet):
@@ -42,7 +43,8 @@ class ApplicationViewSet(viewsets.ModelViewSet):
         return qs
 
     def perform_create(self, serializer):
-        serializer.save(applicant=self.request.user)
+        application = serializer.save(applicant=self.request.user)
+        send_application_confirmation_email(application)
 
     def _check_employer_owns_job(self, application):
         if application.job.company.owner_id != self.request.user.id:
