@@ -1,0 +1,8 @@
+Hello {{ applicant_name }},
+
+Your application for {{ job_title }} at {{ company_name }} has been received.
+
+We will review it shortly and get back to you.
+
+Thanks,
+TalentSync
