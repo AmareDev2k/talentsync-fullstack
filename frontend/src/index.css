@@ -1,13 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
 
 :root {
-  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-family: 'Inter', system-ui, sans-serif;
   line-height: 1.5;
   font-weight: 400;
-  color: #d8e3f0;
+  color: #dbe7f6;
   background:
     radial-gradient(circle at top left, rgba(14, 165, 233, 0.18), transparent 26%),
-    radial-gradient(circle at top right, rgba(22, 198, 185, 0.14), transparent 30%),
+    radial-gradient(circle at top right, rgba(22, 198, 185, 0.12), transparent 28%),
     linear-gradient(180deg, #050b14 0%, #08111e 42%, #0b1526 100%);
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -57,5 +57,5 @@ code {
   padding: 0.14rem 0.35rem;
   border-radius: 0.45rem;
   background: rgba(148, 163, 184, 0.12);
-  color: #f8fbff;
+  color: #f7fbff;
 }

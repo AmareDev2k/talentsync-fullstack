@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:8000/api'
+const BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:8080/api'
 const ACCESS_TOKEN_KEY = 'talentsync_access_token'
 const REFRESH_TOKEN_KEY = 'talentsync_refresh_token'
 

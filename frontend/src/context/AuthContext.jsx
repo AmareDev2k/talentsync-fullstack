@@ -61,6 +61,12 @@ export function AuthProvider({ children }) {
     return response.data
   }
 
+  const updateProfile = async (profileData) => {
+    const response = await api.patch('/users/me/', profileData)
+    setUser(response.data)
+    return response.data
+  }
+
   const logout = () => {
     clearStoredTokens()
     setUser(null)
@@ -68,7 +74,7 @@ export function AuthProvider({ children }) {
   }
 
   return (
-    <AuthContext.Provider value={{ user, loading, login, register, logout, sessionError }}>
+    <AuthContext.Provider value={{ user, loading, login, register, updateProfile, logout, sessionError }}>
       {children}
     </AuthContext.Provider>
   )
