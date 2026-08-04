@@ -1,0 +1,90 @@
+[
+  {
+    "model": "users.user",
+    "pk": 1,
+    "fields": {
+      "password": "pbkdf2_sha256$600000$samplehash$notarealpasswordhash=",
+      "last_login": "2026-08-01T10:00:00Z",
+      "is_superuser": false,
+      "username": "sarah_recruiter",
+      "first_name": "Sarah",
+      "last_name": "Jenkins",
+      "email": "sarah@techcorp.com",
+      "role": "EMPLOYER",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2026-08-01T09:00:00Z"
+    }
+  },
+  {
+    "model": "users.user",
+    "pk": 2,
+    "fields": {
+      "password": "pbkdf2_sha256$600000$samplehash$notarealpasswordhash=",
+      "last_login": "2026-08-02T14:30:00Z",
+      "is_superuser": false,
+      "username": "alex_dev",
+      "first_name": "Alex",
+      "last_name": "Rivera",
+      "email": "alex.rivera@example.com",
+      "role": "JOB_SEEKER",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2026-08-02T11:00:00Z"
+    }
+  },
+  {
+    "model": "companies.company",
+    "pk": 1,
+    "fields": {
+      "name": "TechCorp Solutions",
+      "description": "A leading innovator in cloud infrastructure and enterprise software.",
+      "website": "https://techcorp.example.com",
+      "location": "San Francisco, CA",
+      "owner": 1,
+      "created_at": "2026-08-01T12:00:00Z"
+    }
+  },
+  {
+    "model": "jobs.category",
+    "pk": 1,
+    "fields": {
+      "name": "Software Engineering"
+    }
+  },
+  {
+    "model": "jobs.category",
+    "pk": 2,
+    "fields": {
+      "name": "Product Management"
+    }
+  },
+  {
+    "model": "jobs.job",
+    "pk": 1,
+    "fields": {
+      "title": "Senior Python/Django Developer",
+      "description": "We are looking for an experienced Django engineer to build scalable backend APIs.",
+      "company": 1,
+      "category": 1,
+      "location": "Remote",
+      "salary_min": 120000,
+      "salary_max": 140000,
+      "status": "OPEN",
+      "created_at": "2026-08-03T09:00:00Z",
+      "updated_at": "2026-08-03T09:00:00Z"
+    }
+  },
+  {
+    "model": "applications.application",
+    "pk": 1,
+    "fields": {
+      "job": 1,
+      "applicant": 2,
+      "cover_note": "I have 5 years of experience building REST APIs with Django and would love to join TechCorp!",
+      "status": "APPLIED",
+      "applied_at": "2026-08-03T15:45:00Z",
+      "updated_at": "2026-08-03T15:45:00Z"
+    }
+  }
+]
