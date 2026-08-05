@@ -1,5 +1,6 @@
 import os
 
+# pyrefly: ignore [missing-import]
 import django
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'talentsync_backend.settings')
 django.setup()
