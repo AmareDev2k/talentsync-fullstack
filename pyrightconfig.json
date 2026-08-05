@@ -1,0 +1,11 @@
+{
+  "venvPath": ".",
+  "venv": "backend/venv",
+  "pythonPath": "backend/venv/Scripts/python.exe",
+  "extraPaths": [
+    "backend",
+    "backend/venv/Lib/site-packages"
+  ],
+  "pythonVersion": "3.14",
+  "typeCheckingMode": "basic"
+}

@@ -1,11 +1,13 @@
 import os
+import sys
+sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 # pyrefly: ignore [missing-import]
 import django
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'talentsync_backend.settings')
 django.setup()
 
-from jobs.serializers import JobSerializer
+from jobs.serializers import JobSerializer  # noqa: E402
 
 payload = {
     "title": "Software Engineer",
