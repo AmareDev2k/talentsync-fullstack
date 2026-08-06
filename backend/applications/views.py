@@ -1,6 +1,10 @@
+from typing import cast
+
 from rest_framework import viewsets, permissions
 from rest_framework.exceptions import PermissionDenied
+from rest_framework.request import Request
 
+from users.models import User
 from users.permissions import IsEmployer, IsJobSeeker
 from .models import Application
 from .serializers import ApplicationSerializer, ApplicationCreateSerializer
@@ -31,13 +35,13 @@ class ApplicationViewSet(viewsets.ModelViewSet):
         return [permissions.IsAuthenticated()]
 
     def get_queryset(self):
-        user = self.request.user
+        user = cast(User, self.request.user)
         qs = Application.objects.select_related("job", "job__company", "applicant")
         if user.role == "EMPLOYER":
             qs = qs.filter(job__company__owner=user)
         else:
             qs = qs.filter(applicant=user)
-        job_id = self.request.query_params.get("job")
+        job_id = cast(Request, self.request).query_params.get("job")
         if job_id:
             qs = qs.filter(job_id=job_id)
         return qs
