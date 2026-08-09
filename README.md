@@ -59,8 +59,3 @@ The application models a normalized relational database schema in PostgreSQL[cit
 * [PostgreSQL](https://www.postgresql.org/) installed and running locally[cite: 1]
 
 ---
-
-### 1. Database Setup (PostgreSQL)
-Open your PostgreSQL terminal (`psql`) or **pgAdmin** and create the project database[cite: 1]:
-```sql
-CREATE DATABASE talentsync_db;
